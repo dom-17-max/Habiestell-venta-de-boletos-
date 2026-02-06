@@ -110,53 +110,6 @@ Desarrollo de un **Sistema de Gestión de Rifa** que automatiza y optimiza todo 
 - Debe requerir únicamente Java 8+ y MySQL 8.0+.
 
 ---
-
-## 🗂️ Modelo Lógico
-
-### Diagrama Entidad-Relación
-
-```
-┌─────────────────┐         ┌─────────────────┐         ┌─────────────────┐
-│    CLIENTES     │         │     VENTAS      │         │    BOLETOS      │
-├─────────────────┤         ├─────────────────┤         ├─────────────────┤
-│ PK id_cliente   │────┐    │ PK id_venta     │────┐    │ PK id_boleto    │
-│    nombre       │    │    │ FK id_cliente   │    │    │ FK id_venta     │
-│    cedula (UK)  │    └───→│    numero_venta │    └───→│    numero_rifa  │
-│    telefono     │         │    total        │         │    precio       │
-│    fecha_reg    │         │    fecha_venta  │         │    fecha_gen    │
-└─────────────────┘         └─────────────────┘         │    ganador      │
-                                                         └─────────────────┘
-                            ┌─────────────────┐
-                            │  CONFIGURACION  │
-                            ├─────────────────┤
-                            │ PK id_config    │
-                            │    nombre_param │
-                            │    valor_param  │
-                            │    descripcion  │
-                            │    fecha_modif  │
-                            └─────────────────┘
-```
-
-### Relaciones
-
-1. **CLIENTES (1) ──→ (N) VENTAS**
-   - Un cliente puede realizar múltiples ventas
-   - Una venta pertenece a un único cliente
-   - Relación: 1:N (Uno a Muchos)
-   - Clave Foránea: `ventas.id_cliente` → `clientes.id_cliente`
-
-2. **VENTAS (1) ──→ (N) BOLETOS**
-   - Una venta puede contener múltiples boletos
-   - Un boleto pertenece a una única venta
-   - Relación: 1:N (Uno a Muchos)
-   - Clave Foránea: `boletos.id_venta` → `ventas.id_venta`
-
-3. **Integridad Referencial**
-   - `ON DELETE CASCADE`: Al eliminar un cliente, se eliminan sus ventas y boletos
-   - Garantiza la consistencia de los datos
-
----
-
 ## 📁 Descripción de Tablas Principales
 
 ### Tabla: `clientes`
@@ -427,8 +380,8 @@ mvn exec:java
 
 ## 👥 Autores
 
-- **Nombre**: [Tu Nombre]
-- **Curso**: Segundo de Informática
+- **Nombre**:Aumala Domenika
+- **Curso**: 2 de Informática
 - **Institución**: Unidad Educativa Academia Naval Almirante Illingworth
 - **Año**: 2025-2026
 
@@ -442,4 +395,4 @@ Este proyecto es de uso educativo para el ABP de Programación y Base de Datos.
 
 ## 📧 Contacto
 
-Para consultas o sugerencias, contactar a: [tu-email@ejemplo.com]
+Para consultas o sugerencias, contactar a: 228996@estudiantes.anai.edu.ec 
